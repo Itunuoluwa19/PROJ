@@ -1,0 +1,130 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.0.45-community-nt
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema treat
+--
+
+CREATE DATABASE IF NOT EXISTS treat;
+USE treat;
+
+--
+-- Definition of table `diagnosis`
+--
+
+DROP TABLE IF EXISTS `diagnosis`;
+CREATE TABLE `diagnosis` (
+  `name` char(45) NOT NULL,
+  `bio_electric` int(10) default NULL,
+  `temperature` varchar(45) default NULL,
+  `report` text NOT NULL,
+  `dateEntered` varchar(45) NOT NULL,
+  `timeEntered` varchar(45) NOT NULL,
+  `id` int(11) NOT NULL auto_increment,
+  PRIMARY KEY  USING BTREE (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `diagnosis`
+--
+
+/*!40000 ALTER TABLE `diagnosis` DISABLE KEYS */;
+INSERT INTO `diagnosis` (`name`,`bio_electric`,`temperature`,`report`,`dateEntered`,`timeEntered`,`id`) VALUES 
+ ('joba',1,'1','  ','','',1),
+ ('PAT125',12,'20','your pulse rate is low, \n your blood pressure is on the high side \n symptoms include:weakness, difficulty in working/exercising, tiredness, shortness of breath, light headedness, passing out, \n chest pain, poor appetite, sore throat, cough, ear pain, diarrhea and fussiness. \n First aid include:control your cholesterol and blood pressure eat low fat and low salt diet,\n  get regular execise and quit smoking if you do \n take drugs such as acetaminophen and ibuprofen as prescibed by the label, bathing in lukewarm water, wear light clothes or cover and drink plenty of fluids.','','',2),
+ ('PAT333',12,'120','your pulse rate is low, \n your blood pressure is on the high side \n symptoms include:weakness, difficulty in working/exercising, tiredness, shortness of breath, light headedness, passing out, \n chest pain, poor appetite, sore throat, cough, ear pain, diarrhea and fussiness. \n First aid include:control your cholesterol and blood pressure eat low fat and low salt diet,\n  get regular execise and quit smoking if you do \n take drugs such as acetaminophen and ibuprofen as prescibed by the label, bathing in lukewarm water, wear light clothes or cover and drink plenty of fluids.','','',3),
+ ('PAT880',55,'33','','','',4),
+ ('sola',12,'5','  ','','',5),
+ ('PAT125',30,'25','your pulse rate is low, \n your blood pressure is on the high side \n symptoms include:weakness, difficulty in working/exercising, tiredness, shortness of breath, light headedness, passing out, \n chest pain, poor appetite, sore throat, cough, ear pain, diarrhea and fussiness. \n First aid include:control your cholesterol and blood pressure eat low fat and low salt diet,\n  get regular execise and quit smoking if you do \n take drugs such as acetaminophen and ibuprofen as prescibed by the label, bathing in lukewarm water, wear light clothes or cover and drink plenty of fluids.','2015-06-04','11:55:13 PM',6),
+ ('PAT125',60,'25','you have a normal pulse rate and blood pressure; \n try to maintain a healthy lifestyle. eat and drink fluids well.','2015-06-04','11:56:25 PM',7),
+ ('PAT125',60,'2545','you have a normal pulse rate and blood pressure; \n try to maintain a healthy lifestyle. eat and drink fluids well.','2015-06-04','11:56:34 PM',8),
+ ('PAT125',60,'2','you have a normal pulse rate and blood pressure; \n try to maintain a healthy lifestyle. eat and drink fluids well.','2015-06-04','11:56:44 PM',9),
+ ('PAT125',9,'2','your pulse rate is low, \n your blood pressure is on the high side \n symptoms include:weakness, difficulty in working/exercising, tiredness, shortness of breath, light headedness, passing out, \n chest pain, poor appetite, sore throat, cough, ear pain, diarrhea and fussiness. \n First aid include:control your cholesterol and blood pressure eat low fat and low salt diet,\n  get regular execise and quit smoking if you do \n take drugs such as acetaminophen and ibuprofen as prescibed by the label, bathing in lukewarm water, wear light clothes or cover and drink plenty of fluids.','2015-06-04','11:56:52 PM',10),
+ ('PAT125',12,'12','your pulse rate is low, \n your blood pressure is on the high side \n symptoms include:weakness, difficulty in working/exercising, tiredness, shortness of breath, light headedness, passing out, \n chest pain, poor appetite, sore throat, cough, ear pain, diarrhea and fussiness. \n First aid include:control your cholesterol and blood pressure eat low fat and low salt diet,\n  get regular execise and quit smoking if you do \n take drugs such as acetaminophen and ibuprofen as prescibed by the label, bathing in lukewarm water, wear light clothes or cover and drink plenty of fluids.','2015-06-04','11:57:09 PM',11),
+ ('GDHC',12,'12','your pulse rate is low, \n your blood pressure is on the high side \n symptoms include:weakness, difficulty in working/exercising, tiredness, shortness of breath, light headedness, passing out, \n chest pain, poor appetite, sore throat, cough, ear pain, diarrhea and fussiness. \n First aid include:control your cholesterol and blood pressure eat low fat and low salt diet,\n  get regular execise and quit smoking if you do \n take drugs such as acetaminophen and ibuprofen as prescibed by the label, bathing in lukewarm water, wear light clothes or cover and drink plenty of fluids.','2015-06-05','12:42:08 AM',12);
+/*!40000 ALTER TABLE `diagnosis` ENABLE KEYS */;
+
+
+--
+-- Definition of table `final`
+--
+
+DROP TABLE IF EXISTS `final`;
+CREATE TABLE `final` (
+  `date` int(10) unsigned NOT NULL auto_increment,
+  `id` int(10) unsigned NOT NULL default '0',
+  `report` varchar(150) NOT NULL default '',
+  PRIMARY KEY  (`date`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `final`
+--
+
+/*!40000 ALTER TABLE `final` DISABLE KEYS */;
+/*!40000 ALTER TABLE `final` ENABLE KEYS */;
+
+
+--
+-- Definition of table `information`
+--
+
+DROP TABLE IF EXISTS `information`;
+CREATE TABLE `information` (
+  `id` varchar(15) NOT NULL default '',
+  `first_name` varchar(45) NOT NULL default '',
+  `last_name` varchar(45) NOT NULL default '',
+  `middle_name` varchar(45) NOT NULL default '',
+  `dob` varchar(15) NOT NULL default '0',
+  `mobile` varchar(15) NOT NULL default '0',
+  `gender` varchar(7) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `information`
+--
+
+/*!40000 ALTER TABLE `information` DISABLE KEYS */;
+INSERT INTO `information` (`id`,`first_name`,`last_name`,`middle_name`,`dob`,`mobile`,`gender`) VALUES 
+ ('PAT000','akanbi','folakemi','ruth','07033456786','11/12/1998','female'),
+ ('PAT028','rufus','abimbola','gloria','07045678543','13/11/1987','female'),
+ ('PAT041','ojo','ade','olu','07055432156','8/9/1988','male'),
+ ('PAT121','Alabi','Nelson','Tobiloba','07055587342','6/07/1994','male'),
+ ('PAT125','Jesujoba`','Alabi','Oludara','07064845826','1/2/14','Male'),
+ ('PAT273','Aremu','Omolola','Rebecca','08163104037','25/11/1994','female'),
+ ('PAT318','Adesewa','Rufus','Omotayo','07065768907','19/10/1986','Female'),
+ ('PAT333','Jesujoba','Alabi','Olud','07064845826','12/3/31','Male'),
+ ('PAT514','yf','tf','ttuf','tu','d','gf'),
+ ('PAT611','ojo','matthew','segun','07034667656','15/10/1978','male'),
+ ('PAT661','Olutade','Oba','Richard','07068765453','14/10/1988','male'),
+ ('PAT662','Aremu','Omolola','Rebecca','08163104037','25/11/1994','female'),
+ ('PAT768','joba','alabi','dara','76554444','1234','m'),
+ ('PAT823','Jesujoba','Alabi','Oluwadra','07064845826','1/2/3','M'),
+ ('PAT826','Bakinde','Gold','Itunuoluwa','0807744197','16/10/1994','female'),
+ ('PAT880','joke','ade','kun','0801722881','09/01/1998','female');
+/*!40000 ALTER TABLE `information` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
